@@ -1,56 +1,45 @@
+'use client'
 
-'use client';
+import { usePathname } from 'next/navigation'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
+import { Providers } from './providers'
 
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import { Box, ChakraProvider } from "@chakra-ui/react";
-import { system } from "@chakra-ui/react/preset";
-import { Providers } from "./providers";
-import Sidebar from './components/Sidebar';
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  // ❗ 여기만 수정하면 됨: 제외하고 싶은 경로들 / 조건 분기 방식
+  const isMinimalPage = ['/login', '/register', '/customer-service'].some(path =>
+    pathname.startsWith(path)
+  )
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
     <html lang="ko">
       <body>
-
         <Providers>
-          <Navbar />
-          <Box display="flex" minH="100vh" mt="60px"> {/* ✅ Navbar 밑으로 전체 Flex 영역 */}
-
-            <Box
-              w="250px"
-         
-              borderRight="1px solid #E2E8F0"
-              position="sticky"
-              top="60px" // Navbar height에 맞게!
-              bg="white"
+          {isMinimalPage ? (
+            <div
+              style={{
+                minHeight: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#f4f4f4',
+              }}
             >
-              <Sidebar />
-            </Box>
-            <Box flex="1"> {/* ✅ 나머지 모든 공간 차지 */}
               {children}
-            </Box>
-
-          </Box>
+            </div>
+          ) : (
+            <>
+              <Navbar />
+              {/* <div style={{ display: 'flex' }}>
+                <Sidebar />
+                <main style={{ flex: 1 }}>{children}</main>
+              </div> */}
+            </>
+          )}
         </Providers>
       </body>
     </html>
-  );
+  )
 }

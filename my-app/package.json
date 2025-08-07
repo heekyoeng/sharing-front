@@ -12,15 +12,15 @@
     "@chakra-ui/checkbox": "^2.3.2",
     "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/radio": "^2.1.2",
-    "@chakra-ui/react": "^3.24.0",
+    "@chakra-ui/react": "^2.10.9",
     "@chakra-ui/theme": "^3.4.6",
     "@chakra-ui/theme-tools": "^2.2.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "framer-motion": "^12.23.12",
+    "framer-motion": "^10.18.0",
     "next": "15.4.5",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
