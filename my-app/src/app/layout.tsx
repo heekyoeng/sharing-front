@@ -32,10 +32,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ) : (
             <>
               <Navbar />
-              {/* <div style={{ display: 'flex' }}>
+              <div style={{ display: 'flex' }}>
                 <Sidebar />
                 <main style={{ flex: 1 }}>{children}</main>
-              </div> */}
+              </div>
             </>
           )}
         </Providers>

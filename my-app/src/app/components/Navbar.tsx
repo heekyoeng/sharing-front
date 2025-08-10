@@ -79,10 +79,10 @@ toast({
         />
       </Link>
       {/* 검색창 */}
-      {/* <Box flex="1" mx={4}>
+      <Box flex="1" mx={4}>
         <input
           type="text"
-          placeholder="상품검색"
+          placeholder="데이터검색"
           style={{
         width: '65%',
         padding: '8px',
@@ -91,7 +91,7 @@ toast({
         fontSize: '14px',
           }}
         />
-      </Box> */}
+      </Box>
       <Box>
       {/* 로그인 버튼 */}
    
