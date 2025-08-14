@@ -17,10 +17,10 @@ const KPIS: Kpi[] = [
 ];
 
 const FEATURED: FeaturedItem[] = [
-  { id: 'ds1', title: 'E-Commerce Shipping Delay', desc: '배송 지연 EDA/분류', metricLabel: 'F1', metricValue: '0.84', href: '/board?topic=logistics&slug=e-commerce-shipping' },
-  { id: 'ds2', title: 'Credit Card Churn', desc: '신용카드 이탈 예측', metricLabel: 'AUC', metricValue: '0.89', href: '/board?topic=finance&slug=credit-churn' },
-  { id: 'ds3', title: 'Student Performance', desc: '성적 회귀 예측', metricLabel: 'R²', metricValue: '0.78', href: '/board?topic=education&slug=student-performance' },
-  { id: 'ds4', title: 'Energy Demand', desc: '수요 시계열', metricLabel: 'sMAPE', metricValue: '12.3%', href: '/board?topic=energy&slug=energy-demand' },
+  { id: 'ds1', title: 'E-Commerce Shipping Delay', desc: '배송 지연 EDA/분류', metricLabel: 'F1', metricValue: '0.84', href: '/dashboards/logistics/e-commerce-shipping' },
+  { id: 'ds2', title: 'Credit Card Churn', desc: '신용카드 이탈 예측', metricLabel: 'AUC', metricValue: '0.89', href: '/dashboards/finance/credit-churn' },
+  { id: 'ds3', title: 'Student Performance', desc: '성적 회귀 예측', metricLabel: 'R²', metricValue: '0.78', href: '/dashboards/education/student-performance' },
+  { id: 'ds4', title: 'Energy Demand', desc: '수요 시계열', metricLabel: 'sMAPE', metricValue: '12.3%', href: '/dashboards/energy/energy-demand' },
 ];
 
 /** ===== Small Components ===== */
