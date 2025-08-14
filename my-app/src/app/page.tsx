@@ -88,11 +88,36 @@ export default function HomePage() {
 
   return (
     <Box minH="100vh" bg="white" px={{ base: 4, md: 10 }} py={{ base: 12, md: 20 }} overflowX="hidden">
+      
       <Box maxW="5xl" mx="auto" bg="white" p={6} rounded="xl">
-        <HeroIntro />
+        <HeroIntro /> 
+        <Text 
+  fontSize="lg" 
+  fontWeight="bold" 
+  color="gray.700" 
+  mb={3} 
+ 
+  borderColor="blue.400"
+  display="inline-block"
+  pb={1}
+>
+   데이터 정보
+</Text>
         <KPIHighlights />
 
         {/* 가로 스크롤 추천 영역(빈칸 채움) */}
+        <Text 
+  fontSize="lg" 
+  fontWeight="bold" 
+  color="gray.700" 
+  mb={3} 
+ 
+  borderColor="blue.400"
+  display="inline-block"
+  pb={1}
+>
+   조회수 랭킹
+</Text>
         <Box>
           <Flex align="center" gap={2}>
             <IconButton aria-label="left" icon={<ChevronLeftIcon />} variant="ghost" onClick={() => scroll('left')} />

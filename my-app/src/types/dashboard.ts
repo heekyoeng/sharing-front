@@ -50,3 +50,37 @@ export interface DashboardPageData {
     rows: TableRow[];
   };
 }
+export interface ChartSeries { name: string; data: number[] }
+
+export interface ChartConfig {
+  title: string;
+  labels: string[];        // x축 레이블
+  series: ChartSeries[];   // 1개 이상
+  yUnit?: string;          // y축 단위(선택)
+  note?: string;           // 설명(선택)
+}
+
+
+
+export interface ChartModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  slug: ChartSlug;
+  title: string;
+}
+export type ChartSlug =
+  | 'credit-churn'
+  | 'delivery-delay'
+  | 'sales-trend'
+  | 'customer-segmentation'
+  | 'esg-score'
+  | 'profitability-roe'
+  | 'revenue-growth'
+  | 'retention-cohort'
+  | (string & {});
+
+export interface ChartTileSpec {
+  slug: ChartSlug;
+  title: string;
+  desc?: string;
+}
