@@ -110,11 +110,11 @@ export default function HomePage() {
   fontSize="lg" 
   fontWeight="bold" 
   color="gray.700" 
-  mb={3} 
+  mb={0} 
  
   borderColor="blue.400"
   display="inline-block"
-  pb={1}
+  pb={0}
 >
    조회수 랭킹
 </Text>

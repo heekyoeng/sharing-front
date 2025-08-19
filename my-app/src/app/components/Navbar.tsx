@@ -14,7 +14,7 @@ export default function Navbar() {
 useEffect(() => {
   const checkLoginStatus = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/users/me', {
+      const res = await fetch('http://localhost:5000/api/users/me', {
         method: 'GET',
         credentials: 'include', // 쿠키 포함
       });
@@ -35,9 +35,11 @@ useEffect(() => {
 
   checkLoginStatus();
 }, []);
+
   // 🔓 로그아웃 함수
+  
   const handleLogout = async () => {
-  await fetch('http://localhost:4000/api/auth/logout', {
+  await fetch('http://localhost:5000/api/users/logout', {
   method: 'POST',
   credentials: 'include',
 });

@@ -8,7 +8,7 @@ import { Text } from '@chakra-ui/react';
 
 import ChartSkeleton from './ChartSkeleton';
 import { ChartSlug } from 'types/dashboard';
-import ECommerceShippingChart from './charts/logistics/e-commerce-shipping';
+import ECommerceShippingChart from './charts/logistics/main/e-commerce-shipping';
 
 // 예시: 실제 파일 경로에 맞춰 조정   
 

@@ -1,18 +1,29 @@
 'use client';
-/** 목적: 전일 대비 지연율 변화(pp) 타일 히트맵 */
+/** 목적: 전일 대비 지연율 변화(pp) 타일 히트맵 (더미 데이터 포함) */
 import type { ECommerceShippingChartProps } from 'types/logistics';
 import {
-  Chart as ChartJS, CategoryScale, LinearScale, Tooltip, Legend
+  Chart as ChartJS, CategoryScale, LinearScale, Tooltip, Legend,
+  type ChartOptions
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 
-
 ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend);
 
-export default function DoDHeatmap({ dataset }: Pick<ECommerceShippingChartProps, 'dataset'>) {
-  const labels = dataset.map(d => d.date);
-  const rates = dataset.map(d => d.delayed / Math.max(1, d.total));
-  const changes = rates.map((r, i) => (i === 0 ? 0 : (r - rates[i - 1]) * 100)); // pp
+export default function DoDHeatmap() {
+  /** ✅ 더미 데이터 (내부 정의) */
+  const mockLogisticsDataset: ECommerceShippingChartProps['dataset'] = [
+    { date: '2025-07-01', total: 1200, delayed: 180 },
+    { date: '2025-07-02', total: 1100, delayed: 150 },
+    { date: '2025-07-03', total: 1300, delayed: 170 },
+    { date: '2025-07-04', total: 900,  delayed: 120 },
+    { date: '2025-07-05', total: 1000, delayed: 90  },
+    { date: '2025-07-06', total: 1150, delayed: 150 },
+    { date: '2025-07-07', total: 980,  delayed: 110 },
+  ];
+
+  const labels = mockLogisticsDataset.map(d => d.date);
+  const rates = mockLogisticsDataset.map(d => d.delayed / Math.max(1, d.total));
+  const changes = rates.map((r, i) => (i === 0 ? 0 : (r - rates[i - 1]) * 100)); // pp 변화량
 
   const data = {
     datasets: [{
@@ -30,8 +41,9 @@ export default function DoDHeatmap({ dataset }: Pick<ECommerceShippingChartProps
     }]
   };
 
-  const options = {
-    responsive: true, maintainAspectRatio: false,
+  const options: ChartOptions<'bar'> = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: { type: 'category', labels },
       y: { type: 'category', labels: ['Δ DoD'] }
@@ -50,5 +62,5 @@ export default function DoDHeatmap({ dataset }: Pick<ECommerceShippingChartProps
     }
   };
 
-  return <Chart  data={data as any} options={options as any} type={'bar'} />;
+  return <Chart type="bar" data={data as any} options={options as any} />;
 }

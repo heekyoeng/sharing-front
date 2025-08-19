@@ -6,14 +6,13 @@ import { useState } from 'react'
 import { useLogin } from './hooks/useLogin';
 
 export default function LoginPage() {
-  const { login, loading, error } = useLogin();
+  const { login } = useLogin();
   const toast = useToast();
   
   const [id, setId] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
 
  // ✅ 입력값 검증
   if (!id.trim() || !password.trim()) { //입력 된 id 값의 앞뒤 공백 제외했는 것이 없다면 입력오류 토스트 출력
